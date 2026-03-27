@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pick your blooms</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Special+Elite&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/bouquet.css"/>
+</head>
+<body>
+
+  <header class="page-header">
+    <a href="index.html" class="site-title">MAKE HAPPY</a>
+  </header>
+
+  <main class="bouquet-wrapper">
+
+    <p class="bouquet-instruction">PICK 6 TO 10 BLOOMS</p>
+    <p class="bouquet-hint" id="bouquetHint">Click on a flower's name to deselect it.</p>
+
+    <!-- Horizontal flower row -->
+    <div class="flowers-row-wrap\">
+      <div class="flowers-row" id="flowerGrid">
+
+        <div class="flower-card" data-flower="orchid" data-meaning="Beauty" data-month="April">
+          <div class="flower-img-wrap">
+            <img src="https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/orchid.webp"/>
+            <span class="badge" style="display:none">0</span>
+          </div>
+          <span class="flower-name">Orchid</span>
+          <div class="tooltip">
+            <strong>ORCHID</strong>
+            <span>Beauty</span>
+            <span>Birth Month: April</span>
+          </div>
+        </div>
+
+        <div class="flower-card" data-flower="rose" data-meaning="Love" data-month="June">
+          <div class="flower-img-wrap">
+            <img src="https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/rose.webp"/>
+            <span class="badge" style="display:none">0</span>
+          </div>
+          <span class="flower-name">Rose</span>
+          <div class="tooltip">
+            <strong>ROSE</strong>
+            <span>Love</span>
+            <span>Birth Month: June</span>
+          </div>
+        </div>
+
+        <div class="flower-card" data-flower="carnation" data-meaning="Fascination" data-month="January">
+          <div class="flower-img-wrap">
+            <img src="https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/carnation.webp"/>
+            <span class="badge" style="display:none">0</span>
+          </div>
+          <span class="flower-name">Carnation</span>
+          <div class="tooltip">
+            <strong>CARNATION</strong>
+            <span>Fascination</span>
+            <span>Birth Month: January</span>
+          </div>
+        </div>
+
+        <div class="flower-card" data-flower="anemone" data-meaning="Anticipation" data-month="February">
+          <div class="flower-img-wrap">
+            <img src="https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/anemone.webp""/>
+            <span class="badge" style="display:none">0</span>
+          </div>
+          <span class="flower-name">Anemone</span>
+          <div class="tooltip">
+            <strong>ANEMONE</strong>
+            <span>Anticipation</span>
+            <span>Birth Month: February</span>
+          </div>
+        </div>
+
+        <div class="flower-card" data-flower="peony" data-meaning="Prosperity" data-month="November">
+          <div class="flower-img-wrap">
+            <img src="https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/peony.webp"/>
+            <span class="badge" style="display:none">0</span>
+          </div>
+          <span class="flower-name">Peony</span>
+          <div class="tooltip">
+            <strong>PEONY</strong>
+            <span>Prosperity</span>
+            <span>Birth Month: November</span>
+          </div>
+        </div>
+
+        <div class="flower-card" data-flower="sunflower" data-meaning="Adoration" data-month="August">
+          <div class="flower-img-wrap">
+            <img src="https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/sunflower.webp"/>
+            <span class="badge" style="display:none">0</span>
+          </div>
+          <span class="flower-name">Sunflower</span>
+          <div class="tooltip">
+            <strong>SUNFLOWER</strong>
+            <span>Adoration</span>
+            <span>Birth Month: August</span>
+          </div>
+        </div>
+
+        <div class="flower-card" data-flower="lily" data-meaning="Purity" data-month="May">
+          <div class="flower-img-wrap">
+            <img src="https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/lily.webp"/>
+            <span class="badge" style="display:none">0</span>
+          </div>
+          <span class="flower-name">Lily</span>
+          <div class="tooltip">
+            <strong>LILY</strong>
+            <span>Purity</span>
+            <span>Birth Month: May</span>
+          </div>
+        </div>
+
+        <div class="flower-card" data-flower="daisy" data-meaning="Innocence" data-month="April">
+          <div class="flower-img-wrap">
+            <img src="https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/daisy.webp"/>
+            <span class="badge" style="display:none">0</span>
+          </div>
+          <span class="flower-name">Daisy</span>
+          <div class="tooltip">
+            <strong>DAISY</strong>
+            <span>Innocence</span>
+            <span>Birth Month: April</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Selected pills -->
+    <div class="pills-wrap" id="pillsWrap"></div>
+
+  </main>
+
+  <div class="bottom-nav">
+    <a href="index.html" class="btn btn-outline">Back</a>
+    <button class="btn btn-filled" id="nextBtn" disabled onclick="goToPreview()">Next</button>
+  </div>
+
+  <script src="js/bouquet.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 24px;
+  text-align: center;
+  gap: 16px;
+}
+
+/* ── TITLE ── */
+.home-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 10vw, 5rem);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: #1a1a1a;
+  animation: fadeDown 0.8s ease both;
+  animation-delay: 0s;
+}
+
+/* ── TAGLINE ── */
+.home-tagline {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: clamp(0.65rem, 2.5vw, 0.78rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 2;
+  color: #1a1a1a;
+  animation: fadeDown 0.8s ease both;
+  animation-delay: 0.15s;
+}
+
+/* ── BUTTONS ── */
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 8px;
+  animation: fadeDown 0.8s ease both;
+  animation-delay: 0.25s;
+}
+
+/* ── VIEW GARDEN LINK ── */
+.home-garden-link {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  animation: fadeDown 0.8s ease both;
+  animation-delay: 0.35s;
+  transition: color 0.2s ease;
+}
+
+.home-garden-link:hover {
+  color: #888;
+}
+
+/* ── FOOTER ── */
+.home-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  animation: fadeDown 0.8s ease both;
+  animation-delay: 0.45s;
+}
+
+.footer-vercel {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 999px;
+  padding: 7px 18px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer-vercel:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.footer-credit {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.footer-credit a {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-credit a:hover { color: #888; }
+
+/* ── DESKTOP ── */
+@media (min-width: 640px) {
+  .home-buttons {
+    max-width: 360px;
+  }
+}
+
+/* ── ANIMATION ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

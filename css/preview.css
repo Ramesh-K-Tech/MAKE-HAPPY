@@ -1,0 +1,109 @@
+
+
+.preview-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 120px;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+/* ── TITLE ── */
+.preview-title {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ── ACTION BUTTONS ── */
+.preview-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* ── BOUQUET DISPLAY BOX ── */
+/* Mobile: square, fills screen width */
+.bouquet-display {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1.1;
+  margin: 0 auto;
+}
+
+/* Tablet / Desktop: bigger */
+@media (min-width: 480px) {
+  .bouquet-display {
+    max-width: 440px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bouquet-display {
+    max-width: 500px;
+  }
+}
+
+/* ── BUSH LAYER ── */
+.bush-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.bush-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── FLOWERS LAYER ── */
+.flowers-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* ── INDIVIDUAL FLOWER ── */
+/* Mobile: smaller flowers */
+.bouquet-flower {
+  position: absolute;
+  width: clamp(70px, 22vw, 120px);
+  height: clamp(70px, 22vw, 120px);
+  object-fit: contain;
+  filter: drop-shadow(0px 3px 6px rgba(0,0,0,0.12));
+  cursor: pointer;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: z-index 0s;
+}
+
+.bouquet-flower:hover {
+  transform: scale(1.12) !important;
+  z-index: 20;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; }
+}

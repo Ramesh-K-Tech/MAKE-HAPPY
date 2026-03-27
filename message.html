@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Write a Message</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Tenor+Sans&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/message.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="page-header">
+    <a href="index.html" class="site-title">MAKE HAPPY</a>
+  </header>
+
+  <!-- Main -->
+  <main class="message-wrapper">
+
+    <!-- Title -->
+    <p class="message-title">Add a message</p>
+    <p class="message-subtitle">Write something for the person receiving your bouquet</p>
+
+    <!-- Message Form -->
+    <div class="message-form">
+
+      <!-- From field -->
+      <div class="field-group">
+        <label class="field-label" for="fromField">From</label>
+        <input
+          type="text"
+          id="fromField"
+          class="field-input"
+          placeholder="Your name"
+          maxlength="50"
+        />
+      </div>
+
+      <!-- To field -->
+      <div class="field-group">
+        <label class="field-label" for="toField">To</label>
+        <input
+          type="text"
+          id="toField"
+          class="field-input"
+          placeholder="Recipient's name"
+          maxlength="50"
+        />
+      </div>
+
+      <!-- Message field -->
+      <div class="field-group">
+        <label class="field-label" for="msgField">Message</label>
+        <textarea
+          id="msgField"
+          class="field-textarea"
+          placeholder="Write your message here..."
+          maxlength="300"
+          rows="5"
+        ></textarea>
+        <p class="char-count" id="charCount">0 / 300</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <a href="#" class="btn btn-outline" id="backBtn">Back</a>
+    <button class="btn btn-filled" onclick="goToShare()">Next</button>
+  </div>
+
+  <script src="js/message.js"></script>
+
+</body>
+</html>

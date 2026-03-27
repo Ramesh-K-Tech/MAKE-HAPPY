@@ -1,0 +1,203 @@
+
+.share-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 60px;
+  max-width: 560px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+/* ── DEDICATION ── */
+.share-dedication {
+  text-align: center;
+  line-height: 1.8;
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.1s;
+}
+
+.share-dedication .to-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 5vw, 1.8rem);
+  font-style: italic;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+.share-dedication .from-text {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+/* ── MESSAGE CARD ── */
+.share-message {
+  width: 100%;
+  max-width: 380px;
+  background: #fffdf8;
+  border: 1.5px solid #d4c9b8;
+  padding: 32px 28px 28px;
+  position: relative;
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.2s;
+  box-shadow: 0 2px 18px rgba(0,0,0,0.07);
+  text-align: center;
+}
+
+/* Corner decorations — top-left & bottom-right */
+.share-message::before,
+.share-message::after {
+  content: '✦';
+  position: absolute;
+  font-size: 0.65rem;
+  color: #c9a96e;
+  line-height: 1;
+}
+.share-message::before {
+  top: 10px;
+  left: 14px;
+}
+.share-message::after {
+  bottom: 10px;
+  right: 14px;
+}
+
+/* Gold top divider line */
+.share-message .card-divider {
+  width: 44px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+  margin: 0 auto 16px;
+}
+
+/* Gold bottom divider line */
+.share-message .card-divider-bottom {
+  width: 44px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+  margin: 16px auto 0;
+}
+
+.share-message p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 3.5vw, 1.15rem);
+  font-style: italic;
+  font-weight: 300;
+  color: #2c2c2c;
+  line-height: 2;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── BOUQUET DISPLAY ── */
+.bouquet-display {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1.1;
+  margin: 0 auto;
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.3s;
+}
+
+@media (min-width: 480px) {
+  .bouquet-display {
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bouquet-display {
+    max-width: 480px;
+  }
+}
+
+/* ── BUSH LAYER ── */
+.bush-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.bush-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ── FLOWERS LAYER ── */
+.flowers-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 2;
+}
+
+/* ── INDIVIDUAL FLOWER ── */
+.bouquet-flower {
+  position: absolute;
+  width: clamp(70px, 22vw, 120px);
+  height: clamp(70px, 22vw, 120px);
+  object-fit: contain;
+  filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.12));
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ── SHARE ACTIONS ── */
+.share-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.5s;
+}
+
+/* ── COPIED MSG ── */
+.share-copied {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #4a8a5f;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.share-copied.visible { opacity: 1; }
+
+/* ── BUILD YOUR OWN ── */
+.share-own {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+  animation: fadeUp 0.7s ease both;
+  animation-delay: 0.6s;
+}
+
+.share-own:hover { color: #1a1a1a; }
+
+/* ── ANIMATIONS ── */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

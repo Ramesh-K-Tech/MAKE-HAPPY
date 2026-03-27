@@ -1,0 +1,192 @@
+
+
+/* ── WRAPPER ── */
+.bouquet-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0 140px;
+  gap: 0;
+}
+
+/* ── INSTRUCTION & HINT ── */
+.bouquet-instruction {
+  font-family: 'Special Elite', monospace;
+  font-size: .82rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 8px;
+  padding: 0 20px;
+}
+
+.bouquet-hint {
+  font-family: 'Special Elite', monospace;
+  font-size: .7rem;
+  letter-spacing: 1.5px;
+  color: #aaa;
+  text-align: center;
+  margin-bottom: 28px;
+  padding: 0 20px;
+  min-height: 18px;
+}
+
+/* ── HORIZONTAL FLOWER ROW ── */
+.flowers-row-wrap {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 10px 32px 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.flowers-row-wrap::-webkit-scrollbar { display: none; }
+.flowers-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(4, auto);   /* 4 rows */
+  gap: 20px;
+  justify-items: center;
+  align-items: end;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+/* ── FLOWER CARD ── */
+.flower-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+  padding-bottom: 4px;
+}
+
+.flower-img-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+
+.flower-img-wrap img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+  transition: transform .2s;
+}
+
+.flower-card:hover .flower-img-wrap img {
+  transform: scale(1.08);
+}
+
+/* ── COUNT BADGE ── */
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 26px;
+  height: 26px;
+  background: #1a1a1a;
+  color: #f5f0e8;
+  border-radius: 50%;
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── FLOWER NAME (click to deselect) ── */
+.flower-name {
+  font-family: 'Special Elite', monospace;
+  font-size: .6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #777;
+  margin-top: 8px;
+  transition: color .15s;
+}
+.flower-card.selected .flower-name {
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+/* ── TOOLTIP ── */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1.5px solid #1a1a1a;
+  padding: 10px 14px;
+  min-width: 148px;
+  text-align: center;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .18s;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  white-space: nowrap;
+}
+.tooltip strong {
+  font-family: 'Special Elite', monospace;
+  font-size: .72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+.tooltip span {
+  font-family: 'Special Elite', monospace;
+  font-size: .65rem;
+  letter-spacing: 1px;
+  color: #555;
+  display: block;
+}
+.flower-card:hover .tooltip {
+  opacity: 1;
+}
+
+/* ── PILLS WRAP ── */
+.pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px 0;
+  width: 100%;
+  max-width: 680px;
+  min-height: 44px;
+}
+
+/* ── PILL ── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-family: 'Special Elite', monospace;
+  font-size: .65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  cursor: pointer;
+  background: transparent;
+  transition: background .18s;
+  user-select: none;
+}
+.pill:hover {
+  background: rgba(0,0,0,.07);
+}

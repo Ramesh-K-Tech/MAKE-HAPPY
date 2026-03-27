@@ -1,0 +1,119 @@
+
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px 120px;
+  max-width: 480px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+/* ── TITLE ── */
+.message-title {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.message-subtitle {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: #888;
+  text-align: center;
+  line-height: 1.7;
+  padding: 0 8px;
+}
+
+/* ── FORM ── */
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+/* ── FIELD GROUP ── */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.field-label {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+/* ── INPUT ── */
+.field-input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: #1a1a1a;
+  background: transparent;
+  border: 2px solid #1a1a1a;
+  outline: none;
+  transition: border-color 0.2s ease;
+  /* iOS fix */
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.field-input::placeholder { color: #bbb; }
+.field-input:focus { border-color: #555; }
+
+/* ── TEXTAREA ── */
+.field-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: #1a1a1a;
+  background: transparent;
+  border: 2px solid #1a1a1a;
+  outline: none;
+  resize: none;
+  line-height: 1.7;
+  transition: border-color 0.2s ease;
+  /* iOS fix */
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.field-textarea::placeholder { color: #bbb; }
+.field-textarea:focus { border-color: #555; }
+
+/* ── CHAR COUNT ── */
+.char-count {
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: #aaa;
+  text-align: right;
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 640px) {
+  .message-wrapper {
+    padding: 24px 24px 140px;
+  }
+
+  .field-input,
+  .field-textarea {
+    font-size: 0.95rem;
+    padding: 14px 16px;
+  }
+}
