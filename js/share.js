@@ -1,10 +1,10 @@
-const params  = new URLSearchParams(window.location.search);
+const params   = new URLSearchParams(window.location.search);
 const isShared = params.get('shared') === 'true';
-const flowers = params.get('flowers') ? params.get('flowers').split(',') : [];
-const bush    = parseInt(params.get('bush') || '0');
-const from    = params.get('from') || '';
-const to      = params.get('to')   || '';
-const msg     = params.get('msg')  || '';
+const flowers  = params.get('flowers') ? params.get('flowers').split(',') : [];
+const bush     = parseInt(params.get('bush') || '0');
+const from     = params.get('from') || '';
+const to       = params.get('to')   || '';
+const msg      = params.get('msg')  || '';
 
 // If no flowers, go home
 if (flowers.length === 0) {
@@ -16,7 +16,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0_G7wSZ8VQefE-2PiW
 
 // ── BUSH LIST ──
 const BUSH_BASE = 'https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/bush/';
-const bushList = [
+const bushList  = [
   `${BUSH_BASE}bush-1.png`,
   `${BUSH_BASE}bush-2.png`,
   `${BUSH_BASE}bush-3.png`,
@@ -68,7 +68,7 @@ function renderBush() {
 
 // ── RENDER BOUQUET ──
 function renderBouquet() {
-  const layer = document.getElementById('flowersLayer');
+  const layer    = document.getElementById('flowersLayer');
   layer.innerHTML = '';
   const seed     = flowers.join('').length;
   const shuffled = [...allPositions].sort((a, b) =>
@@ -80,14 +80,14 @@ function renderBouquet() {
     const delay    = i * 0.07;
     const img      = document.createElement('img');
     const FLOWER_BASE = 'https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/flowers/';
-    img.src               = `${FLOWER_BASE}${flower}.webp`;
-    img.alt               = flower;
-    img.className         = 'bouquet-flower';
-    img.style.left        = `${pos.x}%`;
-    img.style.top         = `${pos.y}%`;
-    img.style.transform   = `rotate(${rotation}deg)`;
+    img.src                = `${FLOWER_BASE}${flower}.webp`;
+    img.alt                = flower;
+    img.className          = 'bouquet-flower';
+    img.style.left         = `${pos.x}%`;
+    img.style.top          = `${pos.y}%`;
+    img.style.transform    = `rotate(${rotation}deg)`;
     img.style.animationDelay = `${delay}s`;
-    img.style.zIndex      = i + 1;
+    img.style.zIndex       = i + 1;
     layer.appendChild(img);
   });
 }
@@ -103,31 +103,31 @@ async function sendToSheets() {
   }
 
   btn.textContent = 'Sending... 🌸';
-  btn.disabled = true;
+  btn.disabled    = true;
 
   try {
+    const formData = new FormData();
+    formData.append('to',      to      || '(not set)');
+    formData.append('from',    from    || '(not set)');
+    formData.append('message', msg     || '(no message)');
+    formData.append('flowers', flowers.join(', '));
+
     await fetch(SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        to:      to      || '(not set)',
-        from:    from    || '(not set)',
-        message: msg     || '(no message)',
-        flowers: flowers.join(', ')
-      }),
-      mode: 'no-cors' // required for Apps Script
+      body:   formData,
+      mode:   'no-cors'
     });
 
     btn.dataset.sent = 'true';
     btn.textContent  = '🔗 Copy Link';
     btn.disabled     = false;
-    copyLink(); // auto copy after sending
+    copyLink();
 
   } catch (err) {
     console.error('Sheet error:', err);
     btn.textContent = 'Copy Link 🔗';
     btn.disabled    = false;
-    copyLink(); // still copy even if sheet fails
+    copyLink();
   }
 }
 
@@ -135,10 +135,11 @@ async function sendToSheets() {
 function copyLink() {
   const url = new URL(window.location.href);
   url.searchParams.set('shared', 'true');
+
   navigator.clipboard.writeText(url.toString()).then(() => {
-    const msg = document.getElementById('copiedMsg');
-    msg.classList.add('visible');
-    setTimeout(() => msg.classList.remove('visible'), 3000);
+    const copiedMsg = document.getElementById('copiedMsg');
+    copiedMsg.classList.add('visible');
+    setTimeout(() => copiedMsg.classList.remove('visible'), 3000);
   }).catch(() => {
     const input = document.createElement('input');
     input.value = url.toString();
@@ -152,6 +153,7 @@ function copyLink() {
   });
 }
 
+// ── HANDLE SHARED MODE ──
 function handleShareMode() {
   if (isShared) {
     const actions = document.querySelector('.share-actions');
@@ -161,6 +163,10 @@ function handleShareMode() {
 
 // ── INIT ──
 renderDedication();
+renderMessage();
+renderBush();
+renderBouquet();
+handleShareMode();
 renderMessage();
 renderBush();
 renderBouquet();
