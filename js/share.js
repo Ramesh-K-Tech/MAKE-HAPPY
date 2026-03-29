@@ -102,7 +102,7 @@ async function sendToSheets() {
     return;
   }
 
-  btn.textContent = 'Sending... 🌸';
+  btn.textContent = '';
   btn.disabled    = true;
 
   try {
@@ -119,13 +119,13 @@ async function sendToSheets() {
     });
 
     btn.dataset.sent = 'true';
-    btn.textContent  = '🔗 Copy Link';
+    btn.textContent  = '';
     btn.disabled     = false;
     copyLink();
 
   } catch (err) {
     console.error('Sheet error:', err);
-    btn.textContent = 'Copy Link 🔗';
+    btn.textContent = 'Copy Link to Share 🌸';
     btn.disabled    = false;
     copyLink();
   }
