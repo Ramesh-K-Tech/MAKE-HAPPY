@@ -93,18 +93,9 @@ function renderBouquet() {
 }
 
 // ── SEND TO GOOGLE SHEETS ──
+// ── SEND TO GOOGLE SHEETS (silent) ──
 async function sendToSheets() {
-  const btn = document.getElementById('shareBtn');
-
-  // Prevent duplicate submissions
-  if (btn.dataset.sent === 'true') {
-    copyLink();
-    return;
-  }
-
-  btn.textContent = '';
-  btn.disabled    = true;
-
+  // Save to sheets silently in background
   try {
     const formData = new FormData();
     formData.append('to',      to      || '(not set)');
@@ -112,23 +103,18 @@ async function sendToSheets() {
     formData.append('message', msg     || '(no message)');
     formData.append('flowers', flowers.join(', '));
 
-    await fetch(SCRIPT_URL, {
+    fetch(SCRIPT_URL, {
       method: 'POST',
       body:   formData,
       mode:   'no-cors'
-    });
-
-    btn.dataset.sent = 'true';
-    btn.textContent  = '';
-    btn.disabled     = false;
-    copyLink();
+    }); // no await — runs in background silently
 
   } catch (err) {
-    console.error('Sheet error:', err);
-    btn.textContent = 'Copy Link to Share 🌸';
-    btn.disabled    = false;
-    copyLink();
+    console.error('Sheet error:', err); // silent fail
   }
+
+  // Always just copy the link — no button name change
+  copyLink();
 }
 
 // ── COPY LINK ──
