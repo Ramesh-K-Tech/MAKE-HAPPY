@@ -12,7 +12,7 @@ if (flowers.length === 0) {
 }
 
 // ── APPS SCRIPT URL ──
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0_G7wSZ8VQefE-2PiWrN988r89N8e6TGObVAWnbkI8DSs_z7HYVHjihWSmhKdB6It/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPqrNqNEdE26H-zRMvbPMy_IBUkla3pTDflJL2w_RwsnLTT3f35IBOVM4eamMI1fUX/exec';
 
 // ── BUSH LIST ──
 const BUSH_BASE = 'https://pub-4ac1b7f0da8c43e8983d7821a18a8c0d.r2.dev/color/bush/';
